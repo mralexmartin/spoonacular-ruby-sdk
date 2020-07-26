@@ -167,6 +167,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
+```
+config = OpenapiClient::Configuration.default
+config.api_key['api_key'] = 'abcdef'
+api_client = OpenapiClient::ApiClient.new config
+api_instance = OpenapiClient::DefaultApi.new api_client
+
+result = api_instance.generate_meal_plan({
+  time_frame: 'day', target_calories: 2000, diet: 'vegetarian',
+  exclude: 'shellfish, olives',
+})
+```
 
 ### apiKeyScheme
 

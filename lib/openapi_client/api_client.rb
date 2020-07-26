@@ -93,8 +93,10 @@ module OpenapiClient
       header_params = @default_headers.merge(opts[:header_params] || {})
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
+      auth_names = opts[:auth_names] || []
+      auth_names << 'apiKeyScheme' if auth_names.empty?
 
-      update_params_for_auth! header_params, query_params, opts[:auth_names]
+      update_params_for_auth! header_params, query_params, auth_names
 
       # set ssl_verifyhosts option based on @config.verify_ssl_host (true/false)
       _verify_ssl_host = @config.verify_ssl_host ? 2 : 0
